@@ -4,6 +4,7 @@ public interface interfaseChimpoko {
     void setVida(int vidaAponer);
     void setNombre(String nombreAPoner);
     void setAtaques(ArrayList<Ataque> listaAtaques);
+    void setNaturaleza(Naturaleza naturaleza);
 }
 class BuilderChimpoko implements interfaseChimpoko{
     private Chinpokomon chinpokomon;
@@ -25,6 +26,12 @@ class BuilderChimpoko implements interfaseChimpoko{
     public void setAtaques(ArrayList<Ataque> listaAtaques) {
         chinpokomon.setlistaDeAtaques(listaAtaques);
     }
+
+    @Override
+    public void setNaturaleza(Naturaleza naturaleza) {
+        chinpokomon.setNaturaleza(naturaleza);
+    }
+
     Chinpokomon resultado(){
         chinpokomon.inicializar();
         Chinpokomon nuevoChim = chinpokomon;
