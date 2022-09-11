@@ -1,15 +1,10 @@
 public class Logger {
     private static Logger logger;
     private static Estados estado;
-    private Logger(Estados estado){
-        //this.logger = new Logger(new Debug());
-        Logger.estado = estado;
-    }
-    public static Logger getInstancia(){
-        if (!Logger.hayInstancia()){
-            Logger.logger = new Logger(new Debug());
+    Logger(Estados estado){
+        if(!Logger.hayInstancia()){
+            Logger.estado = estado;
         }
-        return Logger.logger;
     }
     private static boolean hayInstancia(){
         return Logger.estado != null;

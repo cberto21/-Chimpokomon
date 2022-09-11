@@ -8,7 +8,8 @@ public class test{
         Chinpokomon carnotron = creadorDirector.crearCarnotron();
         Chinpokomon zapato = creadorDirector.crearZapato();
 
-        Logger log = Logger.getInstancia();
+        Logger log2 = new Logger(new Error());
+        Logger log = new Logger(new Debug());
 
         while (!carnotron.estaMuerto() && !zapato.estaMuerto()){
             var numAtaqueA = NumAleatorio.aleatorio(zapato.listaDeAtaques.size() -1 );
