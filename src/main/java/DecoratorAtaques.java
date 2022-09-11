@@ -13,17 +13,22 @@ public abstract class DecoratorAtaques implements Ataque {
     public int getRecupera() {
         return decorado.getRecupera();
     }
+    public int getVentaja()  {
+        return decorado.getVentaja();
+    }
 
     public void realizarAtaque(Chinpokomon atacado, Chinpokomon atacante) {
         if (this.tieneEfecto()){
             atacado.modificarVida( - this.especialEfecto(atacado) );
         }else{
-            atacado.modificarVida( - this.getDanio() );
+            decorado.realizarAtaque(atacado,atacante);
         }
+    }
+    public boolean tieneVentaja(Chinpokomon atacado, Chinpokomon atacante) {
+        return decorado.tieneVentaja(atacado,atacante);
     }
     public boolean tieneEfecto() { return false;}
     int especialEfecto(Chinpokomon atacado) {
         return -1;
     }
-
 }

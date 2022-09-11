@@ -3,6 +3,10 @@ public class PomadaWassington extends DecoratorAtaques {
         super(aDecorar);
     }
     public void realizarAtaque(Chinpokomon atacado, Chinpokomon atacante) {
-        atacante.modificarVida(this.getRecupera());
+        if(this.tieneVentaja(atacado,atacante)){
+            atacado.modificarVida( + this.getRecupera() + this.getVentaja() );
+        }else{
+            atacado.modificarVida( + this.getRecupera());
+        }
     }
 }
