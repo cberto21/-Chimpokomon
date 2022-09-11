@@ -12,6 +12,7 @@ public class CreadorDirector {
         builderChimpoko.setNombre("Gallotronix");
         builderChimpoko.setVida(25);
         builderChimpoko.setAtaques(listaAtaques);
+        builderChimpoko.setNaturaleza(new Robot());
         return builderChimpoko.resultado();
     }
     Chinpokomon crearZapato(){
@@ -21,6 +22,7 @@ public class CreadorDirector {
         builderChimpoko.setNombre("Zapato");
         builderChimpoko.setVida(30);
         builderChimpoko.setAtaques(listaAtaques);
+        builderChimpoko.setNaturaleza(new Cosa());
         return builderChimpoko.resultado();
     }
     Chinpokomon crearZapatoEspecial(){
@@ -31,6 +33,7 @@ public class CreadorDirector {
         builderChimpoko.setNombre("ZapatoEspecial");
         builderChimpoko.setVida(30);
         builderChimpoko.setAtaques(listaAtaques);
+        builderChimpoko.setNaturaleza(new Cosa());
         return builderChimpoko.resultado();
     }
     Chinpokomon crearCarnotron (){
@@ -41,25 +44,26 @@ public class CreadorDirector {
         builderChimpoko.setNombre("Carnotron");
         builderChimpoko.setVida(20);
         builderChimpoko.setAtaques(listaAtaques);
+        builderChimpoko.setNaturaleza(new Animal());
         return builderChimpoko.resultado();
     }
 
     private Ataque crearGarraMecanica(){
-        AtaqueConcret ataqueNuevo = new AtaqueConcret("Garra Mecanica", 2, 0);
+        AtaqueConcret ataqueNuevo = new AtaqueConcret("Garra Mecanica", 2, 0, 2);
         return new ProbYDanioElevado( ataqueNuevo ,50.0,2);
     }
     private Ataque crearZapatazo(){
-        AtaqueConcret ataqueNuevo = new AtaqueConcret("Zapatazo", 1, 0);
+        AtaqueConcret ataqueNuevo = new AtaqueConcret("Zapatazo", 1, 0, 3);
         return new ProbYDanioVerdadero( ataqueNuevo ,10.0,50.0);
     }
     private Ataque crearPomadaWassington(){
-        AtaqueConcret ataqueNuevo = new AtaqueConcret("Pomada Wassington", 0, 5);
+        AtaqueConcret ataqueNuevo = new AtaqueConcret("Pomada Wassington", 0, 5,1);
         return new PomadaWassington(ataqueNuevo);
     }
     private Ataque crearRayoVeloz(){
-        return new AtaqueConcret("Rayo Veloz", 3, 0);
+        return new AtaqueConcret("Rayo Veloz", 3, 0,1);
     }
     private Ataque crearCanionConico(){
-        return new AtaqueConcret("Canion Conico", 4, 0);
+        return new AtaqueConcret("Canion Conico", 4, 0,1);
     }
 }
