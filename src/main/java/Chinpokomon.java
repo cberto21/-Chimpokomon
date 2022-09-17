@@ -7,6 +7,23 @@ public class Chinpokomon {
     private ArrayList<Integer> regenero = new ArrayList<>();
     protected int vida;
     protected int vidaActual;
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public List<Ataque> getListaDeAtaques() {
+        return listaDeAtaques;
+    }
+
     protected Naturaleza naturaleza;
     protected String nombre;
     protected List<Ataque> listaDeAtaques = new ArrayList<Ataque>();

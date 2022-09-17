@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.Assertions;
 
 public class test{
@@ -5,29 +6,37 @@ public class test{
         BuilderChimpoko builder = new BuilderChimpoko();
         CreadorDirector creadorDirector = new CreadorDirector(builder);
 
-        Chinpokomon carnotron = creadorDirector.crearCarnotron();
-        Chinpokomon zapatoEspecial = creadorDirector.crearZapatoEspecial();
+        Chinpokomon peleadorA = creadorDirector.crearCarnotron();
+        Chinpokomon peleadorB = creadorDirector.crearZapato();
 
-        //Logger log2 = new Logger(new Error());
         Logger log = new Logger(new Debug());
 
-        while (!carnotron.estaMuerto() && !zapatoEspecial.estaMuerto()){
-            var numAtaqueA = NumAleatorio.aleatorio(zapatoEspecial.listaDeAtaques.size() -1 );
-            var numAtaqueB = NumAleatorio.aleatorio(carnotron.listaDeAtaques.size() -1 );
-            zapatoEspecial.atacarA(carnotron, zapatoEspecial.listaDeAtaques.get(numAtaqueA));
-            carnotron.atacarA(zapatoEspecial, carnotron.listaDeAtaques.get(numAtaqueB));
+        while (!peleadorA.estaMuerto() && !peleadorB.estaMuerto()){
+            var numAtaqueA = NumAleatorio.aleatorio(peleadorA.listaDeAtaques.size() -1 );
+            var numAtaqueB = NumAleatorio.aleatorio(peleadorB.listaDeAtaques.size() -1 );
 
-            log.debug( zapatoEspecial.nombre +"VidaActual:"+ zapatoEspecial.vidaActual );
-            log.debug( carnotron.nombre +"VidaActual:"+ carnotron.vidaActual );
+
+            peleadorB.atacar_a(peleadorA, peleadorB.lista_ataques[numAtaqueB])
+            peleadorA.atacar_a(peleadorB, peleadorA.lista_ataques[numAtaqueA])
+
+            log.debug( peleadorA.getNombre() +"VidaActual:"+ peleadorB.getVidaActual() );
+            log.debug( peleadorB.getNombre() +"VidaActual:"+ peleadorA.getVidaActual() );
+
+            log.info( peleadorA.getNombre() +" Regenero:"+ peleadorB.vidaRegenerada());
+            log.info( peleadorB.getNombre() +" Regenero:"+ peleadorA.vidaRegenerada())
+
+            log.warn( peleadorA.getNombre() +" Hizo Daño:"+ peleadorB.golpeRecibido()))
+            log.warn( peleadorB.getNombre() +" Hizo Daño:"+ peleadorA.golpeRecibido()))
+
+            log.error( peleadorA.getNombre() +" Vida actual:"+ peleadorA.getVidaActual()) )
+            log.error( peleadorB.getNombre() +" Vida actual:"+ peleadorB.getVidaActual()) )
 
 
         }
-        if (carnotron.estaMuerto()) {
-            log.setNivel(new Debug());
-            log.debug(zapatoEspecial.nombre + " Winner");
-        } else if (zapatoEspecial.estaMuerto()) {
-            log.setNivel(new Debug());
-            log.debug(carnotron.nombre + " Winner");
+        if (peleadorB.estaMuerto()) {
+            log.error(peleadorA.getNombre() + " Winner");
+        } else if (peleadorA.estaMuerto()) {
+            log.error(peleadorA.getNombre() + " Winner");
         }
     }
 }
