@@ -6,23 +6,27 @@ public class test{
         CreadorDirector creadorDirector = new CreadorDirector(builder);
 
         Chinpokomon carnotron = creadorDirector.crearCarnotron();
-        Chinpokomon zapato = creadorDirector.crearZapato();
+        Chinpokomon zapatoEspecial = creadorDirector.crearZapatoEspecial();
 
-        Logger log2 = new Logger(new Error());
+        //Logger log2 = new Logger(new Error());
         Logger log = new Logger(new Debug());
 
-        while (!carnotron.estaMuerto() && !zapato.estaMuerto()){
-            var numAtaqueA = NumAleatorio.aleatorio(zapato.listaDeAtaques.size() -1 );
+        while (!carnotron.estaMuerto() && !zapatoEspecial.estaMuerto()){
+            var numAtaqueA = NumAleatorio.aleatorio(zapatoEspecial.listaDeAtaques.size() -1 );
             var numAtaqueB = NumAleatorio.aleatorio(carnotron.listaDeAtaques.size() -1 );
-            zapato.atacarA(carnotron, zapato.listaDeAtaques.get(numAtaqueA));
-            carnotron.atacarA(zapato, carnotron.listaDeAtaques.get(numAtaqueB));
+            zapatoEspecial.atacarA(carnotron, zapatoEspecial.listaDeAtaques.get(numAtaqueA));
+            carnotron.atacarA(zapatoEspecial, carnotron.listaDeAtaques.get(numAtaqueB));
 
-            log.debug( zapato.nombre +"VidaActual:"+ zapato.vidaActual );
+            log.debug( zapatoEspecial.nombre +"VidaActual:"+ zapatoEspecial.vidaActual );
             log.debug( carnotron.nombre +"VidaActual:"+ carnotron.vidaActual );
+
+
         }
         if (carnotron.estaMuerto()) {
-            log.debug(zapato.nombre + " Winner");
-        } else if (zapato.estaMuerto()) {
+            log.setNivel(new Debug());
+            log.debug(zapatoEspecial.nombre + " Winner");
+        } else if (zapatoEspecial.estaMuerto()) {
+            log.setNivel(new Debug());
             log.debug(carnotron.nombre + " Winner");
         }
     }

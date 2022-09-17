@@ -33,7 +33,6 @@ class BuilderChimpoko implements interfaseChimpoko{
     }
 
     Chinpokomon resultado(){
-        chinpokomon.inicializar();
         Chinpokomon nuevoChim = chinpokomon;
         this.reset();
         return nuevoChim;
