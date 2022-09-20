@@ -24,7 +24,7 @@ public class AtaqueConcret implements Ataque {
     }
     public void realizarAtaque(Chinpokomon atacado, Chinpokomon atacante) {
         if(this.tieneVentaja(atacado,atacante)){
-            atacado.modificarVida( - this.danio - this.getVentaja() );
+            atacado.modificarVida( - (this.danio + this.getVentaja()) );
         }else{
             atacado.modificarVida( - this.danio );
         }
